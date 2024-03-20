@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
 
-function App() {
+export default function App() {
+  const [users, setUsers] = useState([]);
+  const [activeUser, setActiveUser] = useState({});
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => {
+        setUsers(json);
+        setActiveUser(json?.[0]);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        background: "#2F363F",
+        color: "#53E0BC",
+        width: "100%",
+        height: "100vh",
+        padding: "16px",
+      }}
+    >
+      {users.length > 0 && (
+        <Users
+          users={users}
+          activeUser={activeUser}
+          setActiveUser={setActiveUser}
+        />
+      )}
+      {users.length > 0 && <UserDetails activeUser={activeUser} />}
     </div>
   );
 }
-
-export default App;
