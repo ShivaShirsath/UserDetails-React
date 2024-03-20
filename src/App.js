@@ -27,9 +27,11 @@ export default function App() {
     >
       {users.length > 0 && (
         <Users
-          users={users}
-          activeUser={activeUser}
-          setActiveUser={setActiveUser}
+          {...{
+            users,
+            activeUser,
+            setActiveUser,
+          }}
         />
       )}
       {users.length > 0 && <UserDetails activeUser={activeUser} />}

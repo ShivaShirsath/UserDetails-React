@@ -32,7 +32,7 @@ function UserItem({ user, isActiveUser, setActiveUser }) {
         marginTop: 8,
         borderRadius: "8px",
         color: isActiveUser ? "#000" : "#53E0BC",
-        cursor: isActiveUser ? "move" : "pointer",
+        cursor: isActiveUser ? "alias" : "pointer",
       }}
     >
       {user.name}
