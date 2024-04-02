@@ -1,7 +1,7 @@
 {
-  "name": "demo",
+  "name": "UserDetails-Reacts",
   "version": "0.1.0",
-  "homepage": "https://shivashirsath.github.io/UserDetails-Reacts",
+  "homepage": "https://shivashirsath.github.io",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
